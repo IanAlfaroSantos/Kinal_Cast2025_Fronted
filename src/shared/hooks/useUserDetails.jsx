@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { logout as logoutHandler } from './userLogout';
+import toast from 'react-hot-toast';
 
 const getUserDetails = () => {
     
@@ -13,8 +14,17 @@ const getUserDetails = () => {
 }
 
 export const useUserDetails = () => {
-
+    
     const [userDetails, setUserDetails] = useState(getUserDetails());
+    
+    useEffect(() => {
+        const mostrar = localStorage.getItem('mostrar-mensaje');
+        if (mostrar === 'true') {
+          toast.success('Sesión cerrada correctamente');
+          localStorage.removeItem('mostrar-mensaje');
+        }
+    }, []);
+    
     const logout = () => {
         logoutHandler();
     }
