@@ -8,6 +8,8 @@ import {
     validatePassword
 } from '../shared/validators';
 import { useLogin } from '../shared/hooks';
+import videoLogin from "../assets/vid/fondoLogin.mp4";
+import "../index.css";
 
 export const Login = ({ switchAuthHandler }) => {
     const { login, isLoading } = useLogin();
@@ -66,6 +68,11 @@ export const Login = ({ switchAuthHandler }) => {
 
     return (
         <div className='login-container'>
+            <div className="video-background">
+                <video autoPlay loop muted playsInline>
+                    <source src={videoLogin} type="video/mp4"/>
+                </video>
+            </div>
             <Logo text={'Login Kinal Cast'}/>
             <form className='auth-form'>
                 <Input
