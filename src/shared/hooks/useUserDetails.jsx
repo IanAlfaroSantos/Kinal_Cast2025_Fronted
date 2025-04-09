@@ -20,8 +20,8 @@ export const useUserDetails = () => {
     useEffect(() => {
         const mostrar = localStorage.getItem('mostrar-mensaje');
         if (mostrar === 'true') {
-          toast.success('Sesión cerrada correctamente');
-          localStorage.removeItem('mostrar-mensaje');
+            toast.success('Sesión cerrada correctamente');
+            localStorage.removeItem('mostrar-mensaje');
         }
     }, []);
     
